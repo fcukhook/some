@@ -56,42 +56,6 @@
             opacity: 0;
             transform: translateY(100%);
         }
-        .button-container {
-            position: absolute;
-            bottom: 20px; /* Space from the bottom */
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 2; /* Ensure it's above the canvas */
-        }
-        .hidden {
-            display: none; /* Hide the button initially */
-        }
-        .show {
-            display: flex; /* Show the button */
-            animation: fadeIn 1s ease-in; /* Optional: Add fade-in effect */
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        .button {
-            background-color: #ff9a9e; /* Button background color */
-            color: white; /* Button text color */
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #fad0c4; /* Hover background color */
-        }
         canvas {
             position: absolute;
             top: 0;
@@ -118,15 +82,11 @@
                 shiva reddy
             </p>
         </div>
-        <div class="button-container hidden" id="buttonContainer">
-            <button class="button" onclick="openSnapchat()">Go to Snap</button>
-        </div>
     </div>
 
     <!-- Audio element without autoplay -->
     <audio id="loveSong" src="kushi.mp3" preload="auto"></audio>
-    <!-- Download link for the recorded video -->
-    
+
     <script>
         // Confetti script
         let W = window.innerWidth;
@@ -240,7 +200,6 @@
         function startAnimation() {
             var wrapper = document.querySelector('.letter-wrapper');
             var coverBox = document.querySelector('.cover-box');
-            var buttonContainer = document.getElementById('buttonContainer');
 
             wrapper.classList.add('animate');
 
@@ -255,18 +214,7 @@
                         console.error('Playback failed:', error);
                     });
                 }
-
-                // Delay before showing the button
-                setTimeout(function() {
-                    buttonContainer.classList.remove('hidden');
-                    buttonContainer.classList.add('show');
-                }, 3000); // 3 seconds delay
             }, { once: true }); // The event listener will be removed after it triggers once
-        }
-
-        function openSnapchat() {
-            // Attempt to open Snapchat app or redirect to Snapchat website
-            window.location.href = 'snapchat://'; // This is a custom URL scheme for Snapchat
         }
     </script>
 </body>
